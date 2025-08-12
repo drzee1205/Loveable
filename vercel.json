@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "name": "open-loveable",
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "next dev",
+  "env": {
+    "NEXT_PUBLIC_APP_URL": "@next-public-app-url"
+  },
+  "build": {
+    "env": {
+      "GROQ_API_KEY": "@groq-api-key",
+      "ANTHROPIC_API_KEY": "@anthropic-api-key",
+      "OPENAI_API_KEY": "@openai-api-key",
+      "MISTRAL_API_KEY": "@mistral-api-key",
+      "E2B_API_KEY": "@e2b-api-key",
+      "ANTHROPIC_BASE_URL": "@anthropic-base-url"
+    }
+  },
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 300
+    }
+  },
+  "regions": ["iad1"],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

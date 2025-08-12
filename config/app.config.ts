@@ -34,14 +34,20 @@ export const appConfig = {
     availableModels: [
       'openai/gpt-5',
       'moonshotai/kimi-k2-instruct',
-      'anthropic/claude-sonnet-4-20250514'
+      'anthropic/claude-sonnet-4-20250514',
+      'mistral/mistral-large-latest',
+      'mistral/mistral-small-latest',
+      'mistral/codestral-latest'
     ],
     
     // Model display names
     modelDisplayNames: {
       'openai/gpt-5': 'GPT-5',
       'moonshotai/kimi-k2-instruct': 'Kimi K2 Instruct',
-      'anthropic/claude-sonnet-4-20250514': 'Sonnet 4'
+      'anthropic/claude-sonnet-4-20250514': 'Sonnet 4',
+      'mistral/mistral-large-latest': 'Mistral Large',
+      'mistral/mistral-small-latest': 'Mistral Small',
+      'mistral/codestral-latest': 'Codestral'
     },
     
     // Temperature settings for non-reasoning models
