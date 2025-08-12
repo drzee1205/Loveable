@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createGroq } from '@ai-sdk/groq';
 import { createAnthropic } from '@ai-sdk/anthropic';
 import { createOpenAI } from '@ai-sdk/openai';
+import { createMistral } from '@ai-sdk/mistral';
 import { streamText } from 'ai';
 import type { SandboxState } from '@/types/sandbox';
 import { selectFilesForEdit, getFileContents, formatFilesForAI } from '@/lib/context-selector';
@@ -21,6 +22,10 @@ const anthropic = createAnthropic({
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+});
+
+const mistral = createMistral({
+  apiKey: process.env.MISTRAL_API_KEY,
 });
 
 // Helper function to analyze user preferences from conversation history
@@ -1149,9 +1154,13 @@ CRITICAL: When files are provided in the context:
         // Determine which provider to use based on model
         const isAnthropic = model.startsWith('anthropic/');
         const isOpenAI = model.startsWith('openai/gpt-5');
-        const modelProvider = isAnthropic ? anthropic : (isOpenAI ? openai : groq);
+        const isMistral = model.startsWith('mistral/');
+        const modelProvider = isAnthropic ? anthropic : 
+                             (isOpenAI ? openai : 
+                             (isMistral ? mistral : groq));
         const actualModel = isAnthropic ? model.replace('anthropic/', '') : 
-                           (model === 'openai/gpt-5') ? 'gpt-5' : model;
+                           (isOpenAI ? 'gpt-5' : 
+                           (isMistral ? model.replace('mistral/', '') : model));
         
         // Make streaming API call with appropriate provider
         const streamOptions: any = {
@@ -1583,6 +1592,8 @@ Provide the complete file content without any truncation. Include all necessary 
                   completionClient = openai;
                 } else if (model.includes('claude')) {
                   completionClient = anthropic;
+                } else if (model.includes('mistral')) {
+                  completionClient = mistral;
                 } else {
                   completionClient = groq;
                 }
