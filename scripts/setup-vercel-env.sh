@@ -18,6 +18,7 @@ echo ""
 
 # Prompt for required variables
 read -p "E2B API Key (required): " E2B_API_KEY
+read -p "Firecrawl API Key (required): " FIRECRAWL_API_KEY
 read -p "Your deployed app URL (e.g., https://your-app.vercel.app): " NEXT_PUBLIC_APP_URL
 
 echo ""
@@ -35,6 +36,12 @@ if [ ! -z "$E2B_API_KEY" ]; then
     vercel env add E2B_API_KEY production <<< "$E2B_API_KEY"
     vercel env add E2B_API_KEY preview <<< "$E2B_API_KEY"
     vercel env add E2B_API_KEY development <<< "$E2B_API_KEY"
+fi
+
+if [ ! -z "$FIRECRAWL_API_KEY" ]; then
+    vercel env add FIRECRAWL_API_KEY production <<< "$FIRECRAWL_API_KEY"
+    vercel env add FIRECRAWL_API_KEY preview <<< "$FIRECRAWL_API_KEY"
+    vercel env add FIRECRAWL_API_KEY development <<< "$FIRECRAWL_API_KEY"
 fi
 
 if [ ! -z "$NEXT_PUBLIC_APP_URL" ]; then
@@ -73,6 +80,7 @@ echo "✅ Environment variables have been set!"
 echo ""
 echo "📋 Summary of what was configured:"
 echo "- E2B_API_KEY: ${E2B_API_KEY:+✓}" 
+echo "- FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:+✓}"
 echo "- NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:+✓}"
 echo "- OPENAI_API_KEY: ${OPENAI_API_KEY:+✓}"
 echo "- ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:+✓}"
