@@ -20,6 +20,7 @@ Before deploying, make sure you have:
 
 ### Required Services
 - **E2B**: Get your API key from [E2B Console](https://e2b.dev/) - Required for code execution sandbox
+- **Firecrawl**: Get your API key from [Firecrawl Console](https://firecrawl.dev/) - Required for web scraping
 
 ## Deployment Steps
 
@@ -48,6 +49,7 @@ Before deploying, make sure you have:
    vercel env add OPENAI_API_KEY
    vercel env add MISTRAL_API_KEY
    vercel env add E2B_API_KEY
+   vercel env add FIRECRAWL_API_KEY
    vercel env add NEXT_PUBLIC_APP_URL
    ```
 
@@ -75,6 +77,7 @@ Before deploying, make sure you have:
    OPENAI_API_KEY=your_openai_api_key_here
    MISTRAL_API_KEY=your_mistral_api_key_here
    E2B_API_KEY=your_e2b_api_key_here
+   FIRECRAWL_API_KEY=your_firecrawl_api_key_here
    NEXT_PUBLIC_APP_URL=https://your-project-name.vercel.app
    ```
 
@@ -98,6 +101,7 @@ Before deploying, make sure you have:
 - `OPENAI_API_KEY`: API key from OpenAI Platform
 - `MISTRAL_API_KEY`: API key from Mistral Console
 - `E2B_API_KEY`: API key from E2B Console (required)
+- `FIRECRAWL_API_KEY`: API key from Firecrawl Console (required)
 - `ANTHROPIC_BASE_URL`: Anthropic API base URL (optional, defaults to official API)
 
 ## Supported AI Models

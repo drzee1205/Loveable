@@ -6,14 +6,20 @@ Chat with AI to build React apps instantly.
 
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZtaHFleGRsMTNlaWNydGdianI4NGQ4dHhyZjB0d2VkcjRyeXBucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZFVLWMa6dVskQX0qu1/giphy.gif" alt="Open Lovable Demo" width="100%"/>
 
+## Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/drzee1205/Loveable&env=E2B_API_KEY,FIRECRAWL_API_KEY,MISTRAL_API_KEY,OPENAI_API_KEY,ANTHROPIC_API_KEY,GROQ_API_KEY&envDescription=API%20keys%20for%20E2B%20sandboxes,%20Firecrawl%20web%20scraping,%20and%20AI%20providers&envLink=https://github.com/drzee1205/Loveable/blob/main/DEPLOYMENT.md&project-name=open-loveable&repository-name=loveable)
+
+*One-click deploy with automatic environment variable setup*
+
 </div>
 
 ## Setup
 
 1. **Clone & Install**
 ```bash
-git clone https://github.com/mendableai/open-lovable.git
-cd open-lovable
+git clone https://github.com/drzee1205/Loveable.git
+cd Loveable
 npm install
 ```
 

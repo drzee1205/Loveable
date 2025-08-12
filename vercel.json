@@ -16,6 +16,7 @@
       "OPENAI_API_KEY": "@openai-api-key",
       "MISTRAL_API_KEY": "@mistral-api-key",
       "E2B_API_KEY": "@e2b-api-key",
+      "FIRECRAWL_API_KEY": "@firecrawl-api-key",
       "ANTHROPIC_BASE_URL": "@anthropic-base-url"
     }
   },
